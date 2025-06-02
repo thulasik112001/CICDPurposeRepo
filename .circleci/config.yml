@@ -16,12 +16,11 @@ jobs:
           name: Run Tests
           command: ./gradlew testDebugUnitTest --no-daemon
       - run:
-          name: Build APK
-          command: ./gradlew assembleDebug --no-daemon
-      - persist_to_workspace:
-          root: ~/app
-          paths:
-            - app/build/outputs/apk/debug/app-debug.apk
+          name: Build Release APK
+          command: ./gradlew assembleRelease --no-daemon
+      - store_artifacts:
+          path: app/build/outputs/apk/release/app-release.apk
+          destination: release-apk
 workflows:
   version: 2
   build_and_test:
