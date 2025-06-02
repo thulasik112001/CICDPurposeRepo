@@ -28,6 +28,10 @@ jobs:
           destination: release-apk
 workflows:
   version: 2
-  build_and_test:
+  pr_to_develop:
     jobs:
-      - build
+      - build:
+          filters:
+            branches:
+              only:
+                - develop
