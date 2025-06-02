@@ -7,6 +7,9 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Make gradlew executable
+          command: chmod +x ./gradlew
+      - run:
           name: Download Dependencies
           command: ./gradlew --no-daemon dependencies
       - run:
